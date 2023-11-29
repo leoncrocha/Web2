@@ -1,0 +1,99 @@
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(241, 235, 235, 0.8);
+    color: #66C0F4;
+    padding: 10px;
+    z-index: 1;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: #66C0F4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #B2DFFC;
+}
+
+.menu li ul {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.menu li:hover ul {
+    display: block;
+}
+
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(241, 235, 235, 0.8);
+    color: #66C0F4;
+    padding: 0px;
+    z-index: 1;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: #66C0F4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #B2DFFC;
+}
+
+.menu li ul {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.menu li:hover ul {
+    display: block;
+}
+
+.menu ul ul {
+    background-color: rgba(241, 235, 235, 0.8);
+}
+
+.menu li a, .menu li ul li a {
+    padding: 24px 26px;
+}

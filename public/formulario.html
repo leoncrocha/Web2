@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/formulario.css">
+    <link rel="stylesheet" href="CSS/menu.css">
+
+        <title>Formulário de Cadastro de Personagem Genshin Impact</title>
+    </head>
+    <body>
+
+
+        <nav class="menu">
+            <ul>
+                <li><a onclick="window.location.href='geral.html'">Tela inicial</a></li>
+                <li>
+                    <a href="#">Cadastrar</a>
+                    <ul>
+                        <li><a  onclick="window.location.href='formulario.html'">Seu Personagem</a></li>
+                       
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Consultar</a>
+                    <ul>
+                        <li><a onclick="window.location.href='tabelaCadastrados.html'">Seus Personagens</a></li>
+                     <li><a href="personagensAPI.html">Personagens da API</a></li>
+                       <!-- <li><a href="#">Consultar Times</a></li>
+                        <li><a href="#">Consultar Arma</a></li>--> 
+                    </ul>
+                </li>
+                <li><a onclick="window.location.href='inicial.html'">Tela de apresentação do site</a></li>
+                <li><a href="equipeDesenvolvimento.html">Equipe de desenvolvimento</a></li>
+                <li><a href="descricao.html">Descrição do trabalho</a></li>
+            </ul>
+        </nav>
+        <form>
+            
+            <h1>Cadastre seu Personagem  de Genshin Impact</h1>
+            <!--<h2>Informações do Personagem</h2>-->
+
+            <label for="name">Nome do Personagem:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <p>Elemento:</p>
+
+            <div class="radio-group">
+                <label><input type="radio" name="elemento" value="Electro"> Electro</label>
+                <label><input type="radio" name="elemento" value="Geo"> Geo</label>
+                <label><input type="radio" name="elemento" value="Dendro"> Dendro</label>
+                <label><input type="radio" name="elemento" value="Hydro"> Hydro</label>
+                <label><input type="radio" name="elemento" value="Pyro"> Pyro</label>
+                <label><input type="radio" name="elemento" value="Cryo"> Cryo</label>
+                <label><input type="radio" name="elemento" value="Anemo"> Anemo</label>
+            </div>
+            
+
+            <p>Arma:</p>
+
+            <div class="radio-group">
+                <label><input type="radio" name="arma" value="Espada"> Espada</label>
+                <label><input type="radio" name="arma" value="Espadão"> Espadão</label>
+                <label><input type="radio" name="arma" value="Arco"> Arco</label>
+                <label><input type="radio" name="arma" value="Catalisador"> Catalisador</label>
+                <label><input type="radio" name="arma" value="Lança"> Lança</label>
+            </div>
+            
+
+            </br><label for="ascensao">Nível de Ascensão:</label><br>
+            <input type="number" id="ascensao" name="ascensao"><br>
+
+            <h2>Estatísticas do Personagem</h2>
+
+            <label for="vida">Vida (HP):</label><br>
+            <input type="number" id="vida" name="vida"><br>
+
+            <label for="ataque">Ataque (ATK):</label><br>
+            <input type="number" id="ataque" name="ataque"><br>
+
+            <label for="defesa">Defesa (DEF):</label><br>
+            <input type="number" id="defesa" name="defesa"><br>
+
+            <label for="dano_elemental">Dano Elemental:</label><br>
+            <input type="number" id="dano_elemental" name="dano_elemental"><br>
+
+            <label for="taxa_critica">Taxa Crítica (%):</label><br>
+            <input type="number" id="taxa_critica" name="taxa_critica"><br>
+
+            <label for="dano_critico">Dano Crítico (%):</label><br>
+            <input type="number" id="dano_critico" name="dano_critico"><br>
+
+            <label for="cura">Cura:</label><br>
+            <input type="number" id="cura" name="cura"><br>
+
+
+            
+            <h2>Habilidades do Personagem</h2>
+
+            <label for="habilidade_normal">Nome da sua Habilidade Normal:</label><br>
+            <input type="text" id="habilidade_normal" name="habilidade_normal"><br>
+
+            <label for="habilidade_elemental">Nome da sua Habilidade Elemental:</label><br>
+            <input type="text" id="habilidade_elemental" name="habilidade_elemental"><br>
+
+            <label for="explosao_elemental"> Nome da sua Explosão Elemental:</label><br>
+            <input type="text" id="explosao_elemental" name="explosao_elemental"><br>
+            
+            <input type="submit" onclick="enviarDados(event)" value="Salvar">
+            <input type="reset" onclick="window.location.href='tabelaCadastrados.html'"   value="Mostrar Personagens cadastrados">
+        </form>
+
+        <script>
+          function limparCampos() {//Função para limpar os campos do formulário
+    document.getElementById('name').value = '';
+    document.querySelector('input[name="elemento"]:checked').checked = false;
+    document.querySelector('input[name="arma"]:checked').checked = false;
+    document.getElementById('ascensao').value = '';
+    document.getElementById('vida').value = '';
+    document.getElementById('ataque').value = '';
+    document.getElementById('defesa').value = '';
+    document.getElementById('dano_elemental').value = '';
+    document.getElementById('taxa_critica').value = '';
+    document.getElementById('dano_critico').value = '';
+    document.getElementById('cura').value = '';
+    document.getElementById('habilidade_normal').value = '';
+    document.getElementById('habilidade_elemental').value = '';
+    document.getElementById('explosao_elemental').value = '';
+}
+        
+            function enviarDados(event) {
+                event.preventDefault();
+        
+                var nome = document.getElementById('name').value;
+                var elemento = document.querySelector('input[name="elemento"]:checked').value;
+                var arma = document.querySelector('input[name="arma"]:checked').value;
+                var ascensao = document.getElementById('ascensao').value;
+                var vida = document.getElementById('vida').value;
+                var ataque = document.getElementById('ataque').value;
+                var defesa = document.getElementById('defesa').value;
+                var danoElemental = document.getElementById('dano_elemental').value;
+                var taxaCritica = document.getElementById('taxa_critica').value;
+                var danoCritico = document.getElementById('dano_critico').value;
+                var cura = document.getElementById('cura').value;
+                var habilidadeNormal = document.getElementById('habilidade_normal').value;
+                var habilidadeElemental = document.getElementById('habilidade_elemental').value;
+                var explosaoElemental = document.getElementById('explosao_elemental').value;
+        
+                fetch('http://localhost:3000/inserir', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        nome: nome,
+                        elemento: elemento,
+                        arma: arma,
+                        ascensao: ascensao,
+                        vida: vida,
+                        ataque: ataque,
+                        defesa: defesa,
+                        danoElemental: danoElemental,
+                        taxaCritica: taxaCritica,
+                        danoCritico: danoCritico,
+                        cura: cura,
+                        habilidadeNormal: habilidadeNormal,
+                        habilidadeElemental: habilidadeElemental,
+                        explosaoElemental: explosaoElemental
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);
+                        limparCampos(); // Chame a função para limpar os campos aqui
+                    }
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+            
+            
+        
+            <footer>
+                Elaborado por Leonardo Cristiano e Wasgton Gomes, para a disciplina de programação web II, 2023
+            </footer>
+
+    </body>
+    </html>
+    

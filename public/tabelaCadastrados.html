@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Personagem de Genshin Impact já Cadastrados</title>
+
+    <link rel="stylesheet" href="CSS/tabela.css">
+    <link rel="stylesheet" href="CSS/menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="menu">
+        <ul>
+            <li><a onclick="window.location.href='geral.html'">Tela inicial</a></li>
+            <li>
+                <a href="#">Cadastrar</a>
+                <ul>
+                    <li><a  onclick="window.location.href='formulario.html'">Seu Personagem</a></li>
+                   
+                </ul>
+            </li>
+            <li>
+                <a href="#">Consultar</a>
+                <ul>
+                    <li><a onclick="window.location.href='tabelaCadastrados.html'">Seus Personagens</a></li>
+                 <li><a href="personagensAPI.html">Personagens da API</a></li>
+                   <!-- <li><a href="#">Consultar Times</a></li>
+                    <li><a href="#">Consultar Arma</a></li>--> 
+                </ul>
+            </li>
+            <li><a onclick="window.location.href='inicial.html'">Tela de apresentação do site</a></li>
+            <li><a href="equipeDesenvolvimento.html">Equipe de desenvolvimento</a></li>
+            <li><a href="descricao.html">Descrição do trabalho</a></li>
+        </ul>
+    </nav>
+
+    <h1>Lista de Personagem de Genshin Impact já Cadastrados</h1>
+
+    
+    <div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block " src="https://images.alphacoders.com/133/1332755.jpeg" alt="Primeiro slide" style="max-height: 300px;">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " src="https://images.alphacoders.com/133/1333017.png "  style="max-height: 300px;" alt="Segundo slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " src="https://images2.alphacoders.com/133/1335753.jpeg" style="max-height: 300px;" alt="Terceiro slide">
+            </div>
+            
+            <div class="carousel-item">
+                <img class="d-block " src="https://images4.alphacoders.com/132/1329756.png" style="max-height: 300px;" alt="Quarto slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " src="https://images6.alphacoders.com/117/1179202.jpg" style="max-height: 300px;" alt="Quinto slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " src="https://images2.alphacoders.com/106/1064544.jpg" style="max-height: 300px;" alt="Sexto slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " src="https://images4.alphacoders.com/110/1107815.jpg" style="max-height: 300px;" alt="Setimo slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
+    </div>
+
+    <div >
+        <table class="table table-sm" id="mostrar">
+            
+        </tbody>
+    </div>
+    </div>
+
+
+    <script>
+        function mostrarPersonagens(){
+            fetch('http://localhost:3000/mostrar')
+            .then(response => response.json())
+            .then(data => {
+                let tabela = '<table>';
+                    tabela += '<tr> <th>ID</th> <th>Nome</th> <th>Elemento</th> <th>Arma</th> <th>Nível de Ascensão</th> <th>Vida</th> <th>Ataque</th> <th>Defesa</th> <th>Dano Elemental</th> <th>Taxa Crítica</th> <th>Dano Crítico</th> <th>Cura</th> <th>Habilidade Normal</th> <th>Habilidade Elemental</th> <th>Explosão Elemental</th> </tr>';
+                    data.forEach(personagem => {
+                        tabela += `<tr><td>${personagem.id}</td><td>${personagem.nome}</td><td>${personagem.elemento}</td><td>${personagem.arma}</td><td>${personagem.nivel_ascensao}</td><td>${personagem.vida}</td><td>${personagem.ataque}</td><td>${personagem.defesa}</td><td>${personagem.dano_elemental}</td><td>${personagem.taxa_critica}</td><td>${personagem.dano_critico}</td><td>${personagem.cura}</td><td>${personagem.habilidade_normal}</td><td>${personagem.habilidade_elemental}</td><td>${personagem.explosao_elemental}</td></tr>`;
+                    });
+                    tabela += '</table>';
+                    document.getElementById('mostrar').innerHTML = tabela;
+            })
+            .catch(error => console.error('Houve um erro ao buscar os dados:', error));
+            
+            // Chamada para a rota /inserirDadosAPI para inserir os dados da API no banco de dados
+   
+        }
+        mostrarPersonagens();
+        
+        // Chamando a função mostrarPersonagens quando a página é carregada
+    //window.onload = mostrarPersonagens;
+
+
+        </script>
+
+<footer>
+    Elaborado por Leonardo Cristiano e Wasgton Gomes, para a disciplina de programação web II, 2023
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

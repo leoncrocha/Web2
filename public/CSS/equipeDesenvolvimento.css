@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #282828;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: auto; /* Permite a rolagem */
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Define a largura para a largura total da janela de visualização */
+    height: 100vh; /* Define a altura para a altura total da janela de visualização */
+    z-index: -1;
+    object-fit: cover; /* Garante que o vídeo cubra toda a área, sem distorção */
+}
+
+.carousel {
+    width: 70%;
+    max-height: 75%;
+    padding: 20px;
+    margin: 7% auto; /* Centraliza o carrossel e adiciona espaço no topo e na parte inferior */
+    background-color: rgba(241, 235, 235, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    z-index: 0; /* Adicionado para evitar que o carrossel sobreponha o menu */
+    overflow: auto; /* Permite a rolagem dentro do carrossel se o conteúdo for muito longo */
+}
+
+.carousel-item {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.carousel-item img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    align-items: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+.carousel {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* Alterado de column para row */
+}
+
